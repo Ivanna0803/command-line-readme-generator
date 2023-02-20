@@ -61,7 +61,7 @@ const questions = [
     // Questions (username)
     {
         type: 'input',
-        message: 'What is your username?',
+        message: 'What is your GitHub username?',
         name: 'username',  
     },
     // Questions (email)
@@ -69,16 +69,21 @@ const questions = [
         type: 'input',
         message: 'What is your email adress?',
         name: 'email',
-    }
+    },
 ];
 
 // function to write README file
-function writeToFile(fileName, data) {
+function writeToFile(data) {
+    fs.writeFile("testREADME.md", generateMarkdown(data), (err) =>
+       err ? console.error(err) : console.log('Your README file successfully created!')
+    )
 }
 
 // function to initialize program
 function init() {
-
+return inquirer.prompt(questions)
+.then((data)=> writeToFile(data) 
+)
 }
 
 // function call to initialize program
