@@ -70,11 +70,17 @@ const questions = [
         message: 'What is your email adress?',
         name: 'email',
     },
+    // Question about README file name
+    {
+        type: 'input',
+        message: 'How would you like to name your README file?',
+        name: 'fileName',
+    }
 ];
 
 // function to write README file
 function writeToFile(data) {
-    fs.writeFile("testREADME.md", generateMarkdown(data), (err) =>
+    fs.writeFile(data.fileName, generateMarkdown(data), (err) =>
        err ? console.error(err) : console.log('Your README file successfully created!')
     )
 }
