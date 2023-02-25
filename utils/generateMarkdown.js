@@ -1,3 +1,4 @@
+// Function to show license badge based on user choice
 function displayLicenseBadge(data) {
   if (data.license === "MIT") {
       return `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`;
@@ -35,6 +36,7 @@ function displayLicenseBadge(data) {
 }
 
 // function to generate markdown for README
+// based on user answers
 function generateMarkdown(data) {
   return `
 # ${data.projectTitle}
@@ -58,7 +60,7 @@ ${data.installation}
 ${data.usage}
 
 ## License
-This project is covered by the ${data.license} license. 
+This project is licensed under the ${data.license} license. 
 
 ## Contributing 
 ${data.contributing}
@@ -67,8 +69,8 @@ ${data.contributing}
 ${data.test}
 
 ## Questions
-[github.com/${data.username}](https://github.com/${data.username})
-${data.email}
+If you have any questions about the repo, open an issue or contact me directly at ${data.email}. 
+You can find more of my work at [github.com/${data.username}](https://github.com/${data.username})
 `;
 }
 

@@ -1,5 +1,7 @@
+// Import `fs` module to enable interaction with the file system
 const fs = require("fs");
-const path = require('path');
+// Variable that stores inquirer -  npm package
+// that capture user input in Node.js command line 
 const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown");
 
@@ -74,7 +76,11 @@ const questions = [
 
 // function to write README file
 function writeToFile(data) {
+    // "writeFile" takes in 3 arguments: path, data, and callback function
     fs.writeFile("./generated_README/README.md", generateMarkdown(data), (err) =>
+       // Shortcut for the "if" statement:
+       // if error: shows error message 
+       // else: console.log message that file created
        err ? console.error(`Whoops.. o_O\n`
        + `Your README file was not generated`) 
        : console.log('Your README file successfully created!')
@@ -83,6 +89,7 @@ function writeToFile(data) {
 
 // function to initialize program
 function init() {
+    // return user answers 
     return inquirer.prompt(questions)
     .then((data) => writeToFile(data))
 }
