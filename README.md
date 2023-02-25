@@ -34,7 +34,7 @@ You can use this applicaiton by following next steps:
 5. Give an answers on prompt questions
 6. Find your generated README.md file in the generated_README folder
 
-Also, you can watch walkthrough video: 
+Also, you can watch walkthrough [video](https://drive.google.com/file/d/1fOdnz91iYDMM8MqeDqfoz4tRgacqXe8l/view)
 
 ## License
 ​
