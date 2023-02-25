@@ -38,11 +38,11 @@ const questions = [
                   'GPLv2', 
                   'Apache', 
                   'GPLv3',
-                  'BSD 3-clause',
-                  'BSD 2-clause',
+                  'ISC',
                   'LGPLv3',
                   'AGPLv3',
-                  'Other',
+                  'Mozilla',
+                  'BSD 2-clause',
                   'Unlicense',
                 ], 
     },
@@ -70,26 +70,21 @@ const questions = [
         message: 'What is your email adress?',
         name: 'email',
     },
-    // Question about README file name
-    {
-        type: 'input',
-        message: 'How would you like to name your README file?',
-        name: 'fileName',
-    }
 ];
 
 // function to write README file
 function writeToFile(data) {
-    fs.writeFile(data.fileName, generateMarkdown(data), (err) =>
-       err ? console.error(err) : console.log('Your README file successfully created!')
+    fs.writeFile("./generated_README/README.md", generateMarkdown(data), (err) =>
+       err ? console.error(`Whoops.. o_O\n`
+       + `Your README file was not generated`) 
+       : console.log('Your README file successfully created!')
     )
 }
 
 // function to initialize program
 function init() {
-return inquirer.prompt(questions)
-.then((data)=> writeToFile(data) 
-)
+    return inquirer.prompt(questions)
+    .then((data) => writeToFile(data))
 }
 
 // function call to initialize program
